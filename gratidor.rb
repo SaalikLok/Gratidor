@@ -43,6 +43,7 @@ def mainMenu(entryMessage)
 end
 
 # TODO: Add a fun Gratidor quiz at the beginning of this firstStart
+# TODO: Add method to return full gratitude journal
 
 # Opening Gratidor for the first time.
 def firstStart
