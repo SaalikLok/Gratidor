@@ -23,8 +23,9 @@ def mainMenu(entryMessage)
     puts
     puts "What would you like to do? (Enter the number)"
     puts "1 - Add a Gratitude"
-    puts "2 - Random Gratitude"
-    puts "3 - Exit"
+    puts "2 - Read me a Random Gratitude"
+    puts "3 - Read the whole journal"
+    puts "4 - Exit"
     puts
     print "Your Response: "
     response = gets.chomp
@@ -34,6 +35,8 @@ def mainMenu(entryMessage)
     elsif response == "2"
         return readFromJournal
     elsif response == "3"
+        return readAllJournal
+    elsif response == "4"
         exit
     elsif response.downcase == "reset"
         return reset
@@ -97,6 +100,17 @@ def readFromJournal
     return mainMenu("It's awesome reflecting on past gratitude, isn't it?")
 end
 
+# Reading whole Journal
+def readAllJournal
+    system "clear"
+    journalData = File.read("gratitudes.txt").split("\n")
+    journalData.each { |line| puts line }
+    puts
+    print "Press any key when you're done reading."
+    gets
+
+    return mainMenu("Viewing the whole journal is pretty crazy, isn't it.")
+end
 
 # Resetting all data
 def reset 
